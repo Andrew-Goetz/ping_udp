@@ -44,19 +44,18 @@ while True:
         last_time = cur_time
     cur_time = time.perf_counter()
     diff = cur_time - last_time
-    print(diff)
     if diff > 30:
         print("Server timed out")
         sys.exit()
     last_seq = cur_seq
     if s != "":
         cur_seq = int(s.split()[1])
+        print(f"Recieved {cur_seq}, diff={diff:.5f}s")
     if cur_seq > last_seq+1:
         for i in range(last_seq+1, cur_seq):
             print(f"Packet {i} lost.")
 
     # Otherwise, capitalize the message from the client
-
     # The server responds
     if message is not None and address is not None:
         message = message.upper()
