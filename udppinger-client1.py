@@ -30,7 +30,7 @@ while True:
         response = data.decode('utf-8')
 
         end = time.perf_counter()
-        print(f"Received \"{response}\" in {end - start:0.4f} seconds")
+        print(f"Received \"{response}\" RTT={end - start:0.4f}s")
     except timeout:
         print("Request timed out.")
     time.sleep(3)

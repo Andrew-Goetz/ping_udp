@@ -18,7 +18,7 @@ try:
     curtime = datetime.datetime.now()
 
     # End after two minutes
-    if (time.perf_counter() - start_time) > 12:
+    if (time.perf_counter() - start_time) > 120:
         break
 
     counter += 1
@@ -35,7 +35,7 @@ try:
         response = data.decode('utf-8')
 
         end = time.perf_counter()
-        print(f"Received \"{response}\" in {end - start:0.4f} seconds")
+        print(f"Received \"{response}\" RTT={end - start:0.4f}s")
         rttList.append(end - start)
     except timeout:
         print("Request timed out.")
