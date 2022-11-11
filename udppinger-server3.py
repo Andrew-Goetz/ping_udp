@@ -48,12 +48,15 @@ while True:
         print("Server timed out")
         sys.exit()
     last_seq = cur_seq
+    printing = ""
     if s != "":
         cur_seq = int(s.split()[1])
-        print(f"Recieved {cur_seq}, diff={diff:.5f}s")
+        printing = f"Recieved {cur_seq}, diff={diff:.5f}s"
     if cur_seq > last_seq+1:
         for i in range(last_seq+1, cur_seq):
             print(f"Packet {i} lost.")
+    if(printing != ""):
+        print(printing)
 
     # Otherwise, capitalize the message from the client
     # The server responds
